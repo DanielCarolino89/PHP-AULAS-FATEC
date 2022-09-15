@@ -1,20 +1,57 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passagem de Parâmetros via GET</title>
+
+    <title>Adivinhando a senha</title>
+
 </head>
+
 <body>
-    <br><br>
-   
-    <form action="gabarito_senha.php" method="post">
-        <label for="senha"> Digite a senha:</label>
-        <input type="text" id="senha" name="senha"><br><br>
-        <input type="submit" value="Enviar">
-    </form></h1></strong>
 
+<?php
 
-    
+//print_r ($_POST)
+
+ $senha = "1234";
+
+ $senhadigitada = $_POST["senha"];
+
+ if($senhadigitada == $senha){
+
+     echo "bem vindo";
+
+ } else {
+
+     echo "errou tente novamente";
+
+ }
+
+ $filename = "senhadigitada.txt";
+
+ if(!file_exists("senhadigitada.txt")){
+
+     $handle = fopen("senhadigitada.txt", "w");
+
+ } else {
+
+     $handle = fopen("senhadigitada.txt", "a");
+
+ }
+
+ fwrite($handle, $senhadigitada."\n");
+
+ fflush($handle);
+
+ fclose($handle);
+
+?>
+
 </body>
+
 </html>
